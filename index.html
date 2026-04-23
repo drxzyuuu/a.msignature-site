@@ -72,7 +72,7 @@
     .lead strong{color:#ddb681}
     .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
-    .stat-card,.glass-card,.product-card,.contact-card,.art-card,.feature-card{
+    .stat-card,.glass-card,.product-card,.contact-card,.art-card,.feature-card,.review-card{
       border:1px solid rgba(203,167,112,.14);
       background:rgba(255,255,255,.03);
       border-radius:28px;
@@ -100,12 +100,12 @@
     .mini-banner h3{margin-top:8px;font-size:28px;position:relative;z-index:1}
     .mini-banner span{position:relative;z-index:1;border-radius:999px;padding:7px 12px;border:1px solid rgba(255,255,255,.20);background:rgba(0,0,0,.18);font-size:14px}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .art-card,.feature-card{padding:18px;transition:.28s ease}
-    .art-card:hover,.feature-card:hover{transform:translateY(-4px);border-color:rgba(211,171,118,.26)}
+    .art-card,.feature-card,.review-card{padding:18px;transition:.28s ease}
+    .art-card:hover,.feature-card:hover,.review-card:hover{transform:translateY(-4px);border-color:rgba(211,171,118,.26)}
     .art-visual{height:250px;border-radius:22px;margin-bottom:18px;position:relative;overflow:hidden}
     .art-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.18))}
-    .art-card h4,.feature-card h4{font-size:28px;margin-bottom:8px}
-    .art-card p,.feature-card p{color:rgba(220,202,175,.76);font-size:14px;line-height:1.9}
+    .art-card h4,.feature-card h4,.review-card h4{font-size:28px;margin-bottom:8px}
+    .art-card p,.feature-card p,.review-card p{color:rgba(220,202,175,.76);font-size:14px;line-height:1.9}
     .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
     .feature-icon{width:52px;height:52px;border-radius:18px;background:rgba(210,166,111,.10);border:1px solid rgba(210,166,111,.22);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
     .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -130,6 +130,17 @@
     .contact-card{padding:20px}
     .contact-card p.small{font-size:12px;text-transform:uppercase;letter-spacing:.25em;color:#cba770;margin-bottom:8px}
     .contact-card strong{font-size:22px}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .stars{color:#ddb681;font-size:18px;letter-spacing:2px;margin-bottom:12px}
+    .review-card strong{display:block;margin-top:14px;font-size:16px;color:#f7edde}
+    .cta-strip{
+      margin-top:24px;
+      border:1px solid rgba(203,167,112,.15);
+      background:linear-gradient(90deg,rgba(210,166,111,.10),rgba(157,107,114,.08),rgba(60,95,150,.08));
+      border-radius:28px;
+      padding:22px;
+      display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;
+    }
     footer{border-top:1px solid rgba(203,167,112,.10);background:#050404;margin-top:24px}
     .footer-grid{display:grid;grid-template-columns:1.1fr .8fr 1fr;gap:24px;padding:34px 0}
     .footer-grid p,.footer-grid li{color:rgba(219,201,177,.74);font-size:14px;line-height:1.9;list-style:none}
@@ -151,11 +162,11 @@
     @media (max-width:1100px){
       .hero-grid,.contact-wrap,.footer-grid{grid-template-columns:1fr 1fr}
       .products{grid-template-columns:repeat(2,1fr)}
-      .feature-grid,.grid-3{grid-template-columns:repeat(2,1fr)}
+      .feature-grid,.grid-3,.review-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media (max-width:860px){
       .nav{display:none}
-      .hero-grid,.contact-wrap,.grid-3,.footer-grid,.products,.stats,.feature-grid{grid-template-columns:1fr}
+      .hero-grid,.contact-wrap,.grid-3,.footer-grid,.products,.stats,.feature-grid,.review-grid{grid-template-columns:1fr}
       .section-head{flex-direction:column;align-items:start}
       .topbar-inner{flex-wrap:wrap}
       .brand-title{font-size:24px}
@@ -175,6 +186,7 @@
         <a href="#accueil">Accueil</a>
         <a href="#selection">Sélection</a>
         <a href="#catalogue">Catalogue</a>
+        <a href="#avis">Avis</a>
         <a href="#contact">Contact</a>
       </nav>
       <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
@@ -186,19 +198,19 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">L'élégance en flacon</div>
-          <h1>Une maison de parfum <span>sombre, noble et moderne.</span></h1>
+          <h1>Parfums inspirés des plus grandes maisons <span>qualité premium à prix unique 20€.</span></h1>
           <p class="lead">
             A.M Signature propose une sélection inspirée des grandes signatures olfactives.
             Tous les parfums sont à <strong>20€</strong>, dans un univers luxe noir, doré, bordeaux et minéral selon chaque senteur.
           </p>
           <div class="hero-actions">
             <a class="btn btn-gold" href="#catalogue">Voir le catalogue</a>
-            <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a>
+            <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander maintenant</a>
           </div>
           <div class="stats">
             <div class="stat-card"><strong>20€</strong><span>Prix unique</span></div>
-            <div class="stat-card"><strong>9</strong><span>Parfums en vitrine</span></div>
-            <div class="stat-card"><strong>Direct</strong><span>Snap ou appel</span></div>
+            <div class="stat-card"><strong>Longue tenue</strong><span>Sillage premium</span></div>
+            <div class="stat-card"><strong>Snap</strong><span>Commande directe</span></div>
           </div>
         </div>
 
@@ -219,8 +231,12 @@
                 <span>20€</span>
               </div>
             </div>
-            <div style="margin-top:16px;padding:18px;border-radius:22px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);color:#efe3d5;line-height:1.8;">
-              Une vitrine premium pensée comme une vraie maison de parfum : propre, luxueuse, immersive et moderne.
+            <div class="cta-strip">
+              <div>
+                <div class="section-kicker" style="margin-bottom:6px">Commande rapide</div>
+                <div style="font-size:24px;font-weight:700">Snap visible, réponse directe, commande simple.</div>
+              </div>
+              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Ouvrir Snap</a>
             </div>
           </div>
         </div>
@@ -234,9 +250,7 @@
             <div class="section-kicker">Direction artistique</div>
             <h2 class="section-title">Un rendu marque premium.</h2>
           </div>
-          <p>
-            Le site mélange noir profond, finitions dorées, contrastes nobles et variations colorées selon l'identité de chaque parfum.
-          </p>
+          <p>Le site mélange noir profond, finitions dorées, contrastes nobles et variations colorées selon l'identité de chaque parfum.</p>
         </div>
         <div class="grid-3">
           <div class="art-card">
@@ -262,12 +276,10 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <div class="section-kicker">Expérience</div>
+            <div class="section-kicker">Pourquoi choisir A.M Signature</div>
             <h2 class="section-title">Pensé pour vendre mieux.</h2>
           </div>
-          <p>
-            Une structure claire, un rendu plus haut de gamme et des actions visibles pour commander rapidement.
-          </p>
+          <p>Une structure claire, un rendu plus haut de gamme et des actions visibles pour commander rapidement.</p>
         </div>
         <div class="feature-grid">
           <div class="feature-card">
@@ -301,9 +313,7 @@
             <div class="section-kicker">Catalogue</div>
             <h2 class="section-title">Nos parfums</h2>
           </div>
-          <p>
-            Maintenant que tes images sont là, le site a déjà une vraie présence. Tu peux ajouter d'autres parfums plus tard avec le même modèle.
-          </p>
+          <p>Maintenant que tes images sont là, le site a déjà une vraie présence. Tu peux ajouter d'autres parfums plus tard avec le même modèle.</p>
         </div>
 
         <div class="products">
@@ -312,7 +322,7 @@
               <img src="images/acqua-di-gio.jpg" alt="Acqua di Gio">
               <div class="label"><small>Inspiration Giorgio Armani</small><strong>Acqua di Gio</strong></div>
             </div>
-            <div class="product-meta"><p>Fraîcheur marine élégante et propre.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Fraîcheur marine élégante et propre, parfaite pour tous les jours.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
@@ -321,7 +331,7 @@
               <img src="images/bakara.jpg" alt="Bakara">
               <div class="label"><small>Inspiration Baccarat Rouge 540</small><strong>Bakara</strong></div>
             </div>
-            <div class="product-meta"><p>Sillage ambré intense et luxueux.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Un sillage ambré intense, luxueux et ultra reconnaissable.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
@@ -330,7 +340,7 @@
               <img src="images/blue-magik.jpg" alt="Blue Magik">
               <div class="label"><small>Inspiration Armaf</small><strong>Blue Magik</strong></div>
             </div>
-            <div class="product-meta"><p>Fraîcheur bleue moderne et énergique.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Fraîcheur bleue moderne, énergique et élégante sur la peau.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
@@ -339,7 +349,7 @@
               <img src="images/coco-vanille.jpg" alt="Coco Vanille">
               <div class="label"><small>Inspiration Mancera</small><strong>Coco Vanille</strong></div>
             </div>
-            <div class="product-meta"><p>Vanille crémeuse et solaire.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Une vanille crémeuse, solaire et addictive, très raffinée.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
@@ -348,7 +358,7 @@
               <img src="images/creme-brulee.jpg" alt="Crème Brûlée">
               <div class="label"><small>Inspiration Kalotinis</small><strong>Crème Brûlée</strong></div>
             </div>
-            <div class="product-meta"><p>Gourmand premium au caramel chaud.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Un gourmand premium au caramel chaud, riche et doux.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
@@ -357,7 +367,7 @@
               <img src="images/erba-pura.jpg" alt="Erba Pura">
               <div class="label"><small>Inspiration Xerjoff</small><strong>Erba Pura</strong></div>
             </div>
-            <div class="product-meta"><p>Explosion fruitée lumineuse.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Explosion fruitée lumineuse avec un vrai effet signature.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
@@ -366,7 +376,7 @@
               <img src="images/jadore.jpg" alt="J'adore">
               <div class="label"><small>Inspiration Dior</small><strong>J'adore</strong></div>
             </div>
-            <div class="product-meta"><p>Floral chic et féminin.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Un floral chic et féminin avec une élégance immédiate.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
@@ -375,7 +385,7 @@
               <img src="images/kirke.jpg" alt="Kirké">
               <div class="label"><small>Inspiration Tiziana Terenzi</small><strong>Kirké</strong></div>
             </div>
-            <div class="product-meta"><p>Exotique, puissant et captivant.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Exotique, puissant et captivant, avec une vraie présence.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
@@ -384,9 +394,38 @@
               <img src="images/terre.jpg" alt="Terre">
               <div class="label"><small>Inspiration Hermès</small><strong>Terre</strong></div>
             </div>
-            <div class="product-meta"><p>Boisé-agrumé noble et masculin.</p><div class="product-price">20€</div></div>
+            <div class="product-meta"><p>Boisé-agrumé noble, masculin et très propre au quotidien.</p><div class="product-price">20€</div></div>
             <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="avis" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Confiance</div>
+            <h2 class="section-title">Ce que tes clients doivent ressentir.</h2>
+          </div>
+          <p>Tu peux remplacer ces cartes par de vrais avis plus tard. Pour l'instant, elles renforcent l'image premium et rassurent les visiteurs.</p>
+        </div>
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Parfums très propres, bonne tenue et vrai effet luxe dès la première impression.</p>
+            <strong>Client satisfait</strong>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Le site donne envie et les visuels mettent bien les parfums en valeur, ça rassure direct.</p>
+            <strong>Retour client</strong>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Commande simple, contact rapide et rendu premium. L'univers de la marque est cohérent.</p>
+            <strong>Expérience premium</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -396,9 +435,7 @@
         <div>
           <div class="section-kicker">Commande rapide</div>
           <h2 class="section-title">Choisis ton parfum et contacte A.M Signature.</h2>
-          <p style="margin-top:16px;max-width:700px;color:rgba(219,201,177,.75);font-size:14px;line-height:1.9;">
-            Le client découvre le parfum, clique sur commander, puis te contacte directement via Snapchat ou téléphone.
-          </p>
+          <p style="margin-top:16px;max-width:700px;color:rgba(219,201,177,.75);font-size:14px;line-height:1.9;">Le client découvre le parfum, clique sur commander, puis te contacte directement via Snapchat ou téléphone.</p>
           <div class="hero-actions" style="margin-top:22px;">
             <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Snap : a.msignature</a>
             <a class="btn btn-outline" href="tel:+33651963008">Appeler le 06 51 96 30 08</a>
@@ -426,6 +463,7 @@
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#selection">Sélection</a></li>
           <li><a href="#catalogue">Catalogue</a></li>
+          <li><a href="#avis">Avis</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
