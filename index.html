@@ -44,7 +44,7 @@
     img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
     .container {
-      width: min(1260px, calc(100% - 36px));
+      width: min(1280px, calc(100% - 36px));
       margin: 0 auto;
     }
 
@@ -179,7 +179,7 @@
 
     .lead {
       margin-top: 22px;
-      max-width: 700px;
+      max-width: 720px;
       color: rgba(219,201,177,.84);
       font-size: 18px;
       line-height: 1.9;
@@ -205,7 +205,8 @@
     .glass-card,
     .product-card,
     .contact-card,
-    .feature-card {
+    .feature-card,
+    .review-card {
       border: 1px solid rgba(203,167,112,.14);
       background: rgba(255,255,255,.03);
       border-radius: 28px;
@@ -261,7 +262,7 @@
     }
 
     .section-head p {
-      max-width: 630px;
+      max-width: 660px;
       color: rgba(219,201,177,.74);
       font-size: 14px;
       line-height: 1.9;
@@ -339,12 +340,14 @@
       gap: 18px;
     }
 
-    .feature-card {
+    .feature-card,
+    .review-card {
       padding: 18px;
       transition: .28s ease;
     }
 
-    .feature-card:hover {
+    .feature-card:hover,
+    .review-card:hover {
       transform: translateY(-4px);
       border-color: rgba(211,171,118,.26);
     }
@@ -362,12 +365,14 @@
       margin-bottom: 14px;
     }
 
-    .feature-card h4 {
+    .feature-card h4,
+    .review-card h4 {
       font-size: 24px;
       margin-bottom: 8px;
     }
 
-    .feature-card p {
+    .feature-card p,
+    .review-card p {
       color: rgba(220,202,175,.76);
       font-size: 14px;
       line-height: 1.9;
@@ -480,6 +485,26 @@
       font-size: 14px;
     }
 
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stars {
+      color: #ddb681;
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .review-card strong {
+      display: block;
+      margin-top: 14px;
+      font-size: 16px;
+      color: #f7edde;
+    }
+
     .contact-wrap {
       display: grid;
       grid-template-columns: 1fr .82fr;
@@ -540,15 +565,22 @@
     .bordeaux { background: linear-gradient(135deg, #13090c, #3c1620, #8f4c63); }
     .blue { background: linear-gradient(135deg, #08111a, #1a3757, #4d7faf); }
     .golden { background: linear-gradient(135deg, #0f0b09, #1d1311, #533224); }
+
     .tone-blue { background: linear-gradient(145deg, #0d1116, #33414d, #7d8d99); }
     .tone-bakara { background: linear-gradient(145deg, #18090a, #4b1d26, #8c4050); }
-    .tone-coco { background: linear-gradient(145deg, #241a12, #7f6446, #cfb18a); }
     .tone-magik { background: linear-gradient(145deg, #08121c, #183b5f, #4f8dc0); }
-    .tone-erba { background: linear-gradient(145deg, #1a120d, #815734, #d9a75d); }
-    .tone-kirke { background: linear-gradient(145deg, #1b0f14, #5f2943, #b06d92); }
+    .tone-coco { background: linear-gradient(145deg, #241a12, #7f6446, #cfb18a); }
     .tone-creme { background: linear-gradient(145deg, #22150f, #7c4d2d, #d79b63); }
-    .tone-terre { background: linear-gradient(145deg, #14110d, #4e3d2c, #a88760); }
+    .tone-erba { background: linear-gradient(145deg, #1a120d, #815734, #d9a75d); }
     .tone-jadore { background: linear-gradient(145deg, #1a140f, #6e5938, #d7bb74); }
+    .tone-kirke { background: linear-gradient(145deg, #1b0f14, #5f2943, #b06d92); }
+    .tone-terre { background: linear-gradient(145deg, #14110d, #4e3d2c, #a88760); }
+    .tone-cachemire { background: linear-gradient(145deg, #151312, #70665c, #d1c5b5); }
+    .tone-bois { background: linear-gradient(145deg, #0d0b09, #4a3a29, #8f7b62); }
+    .tone-santal { background: linear-gradient(145deg, #140f17, #52406a, #a087b9); }
+    .tone-soleil { background: linear-gradient(145deg, #1c150a, #8b6a2d, #e5c57b); }
+    .tone-mula { background: linear-gradient(145deg, #18080a, #5d1f24, #a24d53); }
+    .tone-aisha { background: linear-gradient(145deg, #18120d, #7a5d37, #c9a06d); }
 
     @media (max-width: 1100px) {
       .hero-grid,
@@ -557,7 +589,8 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .products {
+      .products,
+      .review-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -573,7 +606,8 @@
       .footer-grid,
       .products,
       .stats,
-      .feature-grid {
+      .feature-grid,
+      .review-grid {
         grid-template-columns: 1fr;
       }
 
@@ -623,6 +657,7 @@
         <a href="#accueil">Accueil</a>
         <a href="#selection">Sélection</a>
         <a href="#catalogue">Catalogue</a>
+        <a href="#avis">Avis</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -660,8 +695,8 @@
               <span>Prix unique</span>
             </div>
             <div class="stat-card">
-              <strong>Premium</strong>
-              <span>Qualité & tenue</span>
+              <strong>Longue tenue</strong>
+              <span>Sillage premium</span>
             </div>
             <div class="stat-card">
               <strong>Snap</strong>
@@ -712,12 +747,12 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <div class="section-kicker">Direction artistique</div>
-            <h2 class="section-title">Un rendu marque premium.</h2>
+            <div class="section-kicker">Pourquoi choisir A.M Signature</div>
+            <h2 class="section-title">Une image plus forte.</h2>
           </div>
           <p>
-            Le site mélange noir profond, finitions dorées, contrastes nobles
-            et variations colorées selon l'identité de chaque parfum.
+            Une présence visuelle plus premium, une meilleure mise en avant des parfums
+            et une commande plus simple pour rassurer et convertir.
           </p>
         </div>
 
@@ -751,7 +786,7 @@
         <div class="section-head">
           <div>
             <div class="section-kicker">Catalogue</div>
-            <h2 class="section-title">Nos parfums</h2>
+            <h2 class="section-title">Tous les parfums</h2>
           </div>
           <p>
             Tous les parfums sont présentés avec un visuel premium,
@@ -763,164 +798,172 @@
           <article class="product-card">
             <div class="product-image tone-blue">
               <img src="images/acqua-di-gio.jpg" alt="Acqua di Gio">
-              <div class="label">
-                <small>Inspiration Giorgio Armani</small>
-                <strong>Acqua di Gio</strong>
-              </div>
+              <div class="label"><small>Inspiration Giorgio Armani</small><strong>Acqua di Gio</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Fraîcheur marine élégante et propre, parfaite pour tous les jours.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Fraîcheur marine élégante et propre, parfaite pour tous les jours.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
             <div class="product-image tone-bakara">
               <img src="images/bakara.jpg" alt="Bakara">
-              <div class="label">
-                <small>Inspiration Baccarat Rouge 540</small>
-                <strong>Bakara</strong>
-              </div>
+              <div class="label"><small>Inspiration Baccarat Rouge 540</small><strong>Bakara</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Un sillage ambré intense, luxueux et ultra reconnaissable.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Un sillage ambré intense, luxueux et ultra reconnaissable.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
             <div class="product-image tone-magik">
               <img src="images/blue-magik.jpg" alt="Blue Magik">
-              <div class="label">
-                <small>Inspiration Armaf</small>
-                <strong>Blue Magik</strong>
-              </div>
+              <div class="label"><small>Inspiration Armaf</small><strong>Blue Magik</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Fraîcheur bleue moderne, énergique et élégante sur la peau.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Fraîcheur bleue moderne, énergique et élégante sur la peau.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
             <div class="product-image tone-coco">
               <img src="images/coco-vanille.jpg" alt="Coco Vanille">
-              <div class="label">
-                <small>Inspiration Mancera</small>
-                <strong>Coco Vanille</strong>
-              </div>
+              <div class="label"><small>Inspiration Mancera</small><strong>Coco Vanille</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Une vanille crémeuse, solaire et addictive, très raffinée.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Une vanille crémeuse, solaire et addictive, très raffinée.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
             <div class="product-image tone-creme">
               <img src="images/creme-brulee.jpg" alt="Crème Brûlée">
-              <div class="label">
-                <small>Inspiration Kalotinis</small>
-                <strong>Crème Brûlée</strong>
-              </div>
+              <div class="label"><small>Inspiration Kalotinis</small><strong>Crème Brûlée</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Un gourmand premium au caramel chaud, riche et doux.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Un gourmand premium au caramel chaud, riche et doux.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
             <div class="product-image tone-erba">
               <img src="images/erba-pura.jpg" alt="Erba Pura">
-              <div class="label">
-                <small>Inspiration Xerjoff</small>
-                <strong>Erba Pura</strong>
-              </div>
+              <div class="label"><small>Inspiration Xerjoff</small><strong>Erba Pura</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Explosion fruitée lumineuse avec un vrai effet signature.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Explosion fruitée lumineuse avec un vrai effet signature.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
             <div class="product-image tone-jadore">
               <img src="images/jadore.jpg" alt="J'adore">
-              <div class="label">
-                <small>Inspiration Dior</small>
-                <strong>J'adore</strong>
-              </div>
+              <div class="label"><small>Inspiration Dior</small><strong>J'adore</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Un floral chic et féminin avec une élégance immédiate.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Un floral chic et féminin avec une élégance immédiate.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
             <div class="product-image tone-kirke">
               <img src="images/kirke.jpg" alt="Kirké">
-              <div class="label">
-                <small>Inspiration Tiziana Terenzi</small>
-                <strong>Kirké</strong>
-              </div>
+              <div class="label"><small>Inspiration Tiziana Terenzi</small><strong>Kirké</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Exotique, puissant et captivant, avec une vraie présence.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Exotique, puissant et captivant, avec une vraie présence.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
             <div class="product-image tone-terre">
               <img src="images/terre.jpg" alt="Terre">
-              <div class="label">
-                <small>Inspiration Hermès</small>
-                <strong>Terre</strong>
-              </div>
+              <div class="label"><small>Inspiration Hermès</small><strong>Terre</strong></div>
             </div>
-            <div class="product-meta">
-              <p>Boisé-agrumé noble, masculin et très propre au quotidien.</p>
-              <div class="product-price">20€</div>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander</a>
-              <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
-            </div>
+            <div class="product-meta"><p>Boisé-agrumé noble, masculin et très propre au quotidien.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
+
+          <article class="product-card">
+            <div class="product-image tone-cachemire">
+              <img src="images/cachemire.jpg" alt="Cachemire">
+              <div class="label"><small>Inspiration Kashmir Musk</small><strong>Cachemire</strong></div>
+            </div>
+            <div class="product-meta"><p>Doux, propre et élégant, avec une ambiance musquée raffinée.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image tone-bois">
+              <img src="images/bois.jpg" alt="Bois">
+              <div class="label"><small>Inspiration Bois d'Argent</small><strong>Bois</strong></div>
+            </div>
+            <div class="product-meta"><p>Boisé chic, profond et propre, avec une vraie allure premium.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image tone-santal">
+              <img src="images/santal-paris.jpg" alt="Santal Paris">
+              <div class="label"><small>Inspiration Place de la Rêverie</small><strong>Santal Paris</strong></div>
+            </div>
+            <div class="product-meta"><p>Un santal élégant, velouté et raffiné avec une belle profondeur.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image tone-soleil">
+              <img src="images/soleil-blanc.jpg" alt="Soleil Blanc">
+              <div class="label"><small>Inspiration Tom Ford</small><strong>Soleil Blanc</strong></div>
+            </div>
+            <div class="product-meta"><p>Un parfum solaire, chic et lumineux, très haut de gamme.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image tone-mula">
+              <img src="images/mula.jpg" alt="Mula">
+              <div class="label"><small>Inspiration Byron</small><strong>Mula</strong></div>
+            </div>
+            <div class="product-meta"><p>Fruité, intense et séduisant, avec un sillage bien marqué.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image tone-aisha">
+              <img src="images/aisha.jpg" alt="Aisha">
+              <div class="label"><small>Inspiration XXV Century</small><strong>Aisha</strong></div>
+            </div>
+            <div class="product-meta"><p>Lumineux, fruité et élégant, avec une vraie présence féminine.</p><div class="product-price">20€</div></div>
+            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="avis" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Confiance</div>
+            <h2 class="section-title">Avis clients</h2>
+          </div>
+          <p>
+            Tu peux garder ces cartes pour l’instant, puis les remplacer plus tard
+            par de vrais retours clients.
+          </p>
+        </div>
+
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Très bonne tenue et vrai effet premium. Les parfums sentent vraiment propre.</p>
+            <strong>Client satisfait</strong>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Le site est propre, les parfums sont bien mis en valeur et ça donne confiance.</p>
+            <strong>Retour client</strong>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Commande simple, réponse rapide et univers vraiment classe.</p>
+            <strong>Expérience premium</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -934,7 +977,7 @@
             Le client découvre le parfum, clique sur commander, puis te contacte directement via Snapchat ou téléphone.
           </p>
           <div class="hero-actions" style="margin-top:22px;">
-            <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Snap : a.msignature</a>
+            <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Snap : a.msignature</a>
             <a class="btn btn-outline" href="tel:+33651963008">Appeler le 06 51 96 30 08</a>
           </div>
         </div>
@@ -971,6 +1014,7 @@
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#selection">Sélection</a></li>
           <li><a href="#catalogue">Catalogue</a></li>
+          <li><a href="#avis">Avis</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -980,7 +1024,7 @@
         <p>Snapchat : a.msignature</p>
         <p>Téléphone : +33 06 51 96 30 08</p>
         <div class="hero-actions" style="margin-top:16px;">
-          <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">Commander sur Snap</a>
+          <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander sur Snap</a>
           <a class="btn btn-outline" href="tel:+33651963008">Appeler</a>
         </div>
       </div>
