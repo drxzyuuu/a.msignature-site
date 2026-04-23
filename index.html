@@ -146,7 +146,7 @@
     }
 
     .hero {
-      padding: 74px 0 34px;
+      padding: 82px 0 40px;
     }
 
     .hero-grid {
@@ -165,8 +165,8 @@
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 84px);
-      line-height: .96;
+      font-size: clamp(42px, 7vw, 90px);
+      line-height: .94;
       font-weight: 700;
     }
 
@@ -180,7 +180,7 @@
 
     .lead {
       margin-top: 22px;
-      max-width: 720px;
+      max-width: 760px;
       color: rgba(219,201,177,.84);
       font-size: 18px;
       line-height: 1.9;
@@ -207,7 +207,8 @@
     .product-card,
     .contact-card,
     .feature-card,
-    .review-card {
+    .review-card,
+    .product-page-card {
       border: 1px solid rgba(203,167,112,.14);
       background: rgba(255,255,255,.03);
       border-radius: 28px;
@@ -215,13 +216,11 @@
     }
 
     .stat-card { padding: 18px; }
-
     .stat-card strong {
       display: block;
       font-size: 30px;
       margin-bottom: 4px;
     }
-
     .stat-card span {
       font-size: 14px;
       color: rgba(219,201,177,.72);
@@ -251,7 +250,7 @@
     }
 
     .section {
-      padding: 38px 0 24px;
+      padding: 42px 0 28px;
     }
 
     .section-head {
@@ -263,7 +262,7 @@
     }
 
     .section-head p {
-      max-width: 660px;
+      max-width: 700px;
       color: rgba(219,201,177,.74);
       font-size: 14px;
       line-height: 1.9;
@@ -278,7 +277,7 @@
     }
 
     .section-title {
-      font-size: clamp(34px, 5vw, 54px);
+      font-size: clamp(34px, 5vw, 56px);
       line-height: 1.05;
       font-weight: 700;
     }
@@ -335,9 +334,10 @@
       font-size: 14px;
     }
 
-    .feature-grid {
+    .feature-grid,
+    .review-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
@@ -348,7 +348,8 @@
     }
 
     .feature-card:hover,
-    .review-card:hover {
+    .review-card:hover,
+    .product-page-card:hover {
       transform: translateY(-4px);
       border-color: rgba(211,171,118,.26);
     }
@@ -479,17 +480,12 @@
       display: flex;
       gap: 10px;
       margin-top: 16px;
+      flex-wrap: wrap;
     }
 
     .product-actions .btn {
       padding: 12px 16px;
       font-size: 14px;
-    }
-
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
     }
 
     .stars {
@@ -504,6 +500,72 @@
       margin-top: 14px;
       font-size: 16px;
       color: #f7edde;
+    }
+
+    .product-pages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .product-page-card {
+      padding: 18px;
+      transition: .28s ease;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+    }
+
+    .product-page-visual {
+      height: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(145deg, #111, #222);
+      margin-bottom: 18px;
+    }
+
+    .product-page-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .product-page-title h3 {
+      font-size: 32px;
+      line-height: 1.1;
+    }
+
+    .product-tag {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: #cba770;
+      margin-bottom: 10px;
+    }
+
+    .product-page-desc {
+      color: rgba(232,219,202,.84);
+      font-size: 15px;
+      line-height: 1.95;
+      margin-bottom: 16px;
+    }
+
+    .product-notes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .note-box {
+      border: 1px solid rgba(203,167,112,.12);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding: 12px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(240,228,214,.82);
     }
 
     .contact-wrap {
@@ -586,17 +648,19 @@
     @media (max-width: 1100px) {
       .hero-grid,
       .contact-wrap,
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
+      .footer-grid,
+      .product-pages-grid {
+        grid-template-columns: 1fr;
       }
 
       .products,
-      .review-grid {
+      .review-grid,
+      .feature-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .product-notes {
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
 
@@ -608,7 +672,9 @@
       .products,
       .stats,
       .feature-grid,
-      .review-grid {
+      .review-grid,
+      .product-pages-grid,
+      .product-notes {
         grid-template-columns: 1fr;
       }
 
@@ -630,6 +696,10 @@
       }
 
       .product-image {
+        height: 320px;
+      }
+
+      .product-page-visual {
         height: 320px;
       }
 
@@ -658,6 +728,7 @@
         <a href="#accueil">Accueil</a>
         <a href="#selection">Sélection</a>
         <a href="#catalogue">Catalogue</a>
+        <a href="#produits">Pages produit</a>
         <a href="#avis">Avis</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -674,20 +745,18 @@
         <div>
           <div class="eyebrow">L'élégance en flacon</div>
           <h1>
-            Parfums inspirés des plus grandes maisons
-            <span>qualité premium à prix unique 20€.</span>
+            Une signature parfum
+            <span>plus luxe, plus noble, plus marquante.</span>
           </h1>
           <p class="lead">
-            A.M Signature propose une sélection inspirée des grandes signatures olfactives.
-            Tous les parfums sont à <strong>20€</strong>, dans un univers luxe noir, doré,
-            bordeaux et minéral selon chaque senteur.
+            A.M Signature propose une sélection inspirée des grandes maisons.
+            Tous les parfums sont à <strong>20€</strong>, dans un univers sombre,
+            élégant et premium, pensé comme une vraie marque.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-gold" href="#catalogue">Voir le catalogue</a>
-            <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank" rel="noopener noreferrer">
-              Commander maintenant
-            </a>
+            <a class="btn btn-outline" href="#produits">Voir les pages produit</a>
           </div>
 
           <div class="stats">
@@ -696,12 +765,12 @@
               <span>Prix unique</span>
             </div>
             <div class="stat-card">
-              <strong>Longue tenue</strong>
-              <span>Sillage premium</span>
+              <strong>Premium</strong>
+              <span>Image de marque</span>
             </div>
             <div class="stat-card">
-              <strong>Snap</strong>
-              <span>Commande directe</span>
+              <strong>Direct</strong>
+              <span>Snap ou appel</span>
             </div>
           </div>
         </div>
@@ -737,7 +806,7 @@
             </div>
 
             <div style="margin-top:16px;padding:18px;border-radius:22px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);color:#efe3d5;line-height:1.8;">
-              Une vitrine premium pensée comme une vraie maison de parfum : propre, luxueuse, immersive et moderne.
+              Une vitrine premium pensée comme une vraie maison de parfum : image forte, univers cohérent et produits valorisés.
             </div>
           </div>
         </div>
@@ -749,11 +818,11 @@
         <div class="section-head">
           <div>
             <div class="section-kicker">Pourquoi choisir A.M Signature</div>
-            <h2 class="section-title">Une image plus forte.</h2>
+            <h2 class="section-title">Une présence plus haut de gamme.</h2>
           </div>
           <p>
-            Une présence visuelle plus premium, une meilleure mise en avant des parfums
-            et une commande plus simple pour rassurer et convertir.
+            Une meilleure mise en avant, des fiches produit dédiées et une image plus forte
+            pour donner plus envie de cliquer et de commander.
           </p>
         </div>
 
@@ -761,22 +830,17 @@
           <div class="feature-card">
             <div class="feature-icon">✦</div>
             <h4>Visuel premium</h4>
-            <p>Des cartes produit propres, élégantes et plus haut de gamme.</p>
+            <p>Des cartes parfum plus propres avec un rendu beaucoup plus marque.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">⌁</div>
-            <h4>Zoom au survol</h4>
-            <p>Chaque parfum gagne en présence quand on passe la souris dessus.</p>
+            <h4>Fiches dédiées</h4>
+            <p>Chaque parfum important peut avoir sa propre zone avec grande image et description.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">◉</div>
-            <h4>Commande rapide</h4>
-            <p>Le bouton Snap est visible pour faciliter la prise de contact.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">☽</div>
-            <h4>Univers cohérent</h4>
-            <p>Chaque senteur garde sa couleur tout en restant dans la même marque.</p>
+            <h4>Commande simple</h4>
+            <p>Le bouton commander reste visible et clair partout sur le site.</p>
           </div>
         </div>
       </div>
@@ -790,37 +854,21 @@
             <h2 class="section-title">Tous les parfums</h2>
           </div>
           <p>
-            Tous les parfums sont présentés avec un visuel premium,
-            un prix clair et un accès direct à la commande.
+            Le catalogue donne une vue rapide. Ensuite, les visiteurs peuvent descendre sur les pages produit dédiées juste en dessous.
           </p>
         </div>
 
         <div class="products">
-          <article class="product-card">
-            <div class="product-image tone-blue">
-              <img src="images/acqua-di-gio.jpg" alt="Acqua di Gio">
-              <div class="label"><small>Inspiration Giorgio Armani</small><strong>Acqua di Gio</strong></div>
-            </div>
-            <div class="product-meta"><p>Fraîcheur marine élégante et propre, parfaite pour tous les jours.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Acqua di Gio</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
-          </article>
-
           <article class="product-card">
             <div class="product-image tone-bakara">
               <img src="images/bakara.jpg" alt="Bakara">
               <div class="label"><small>Inspiration Baccarat Rouge 540</small><strong>Bakara</strong></div>
             </div>
             <div class="product-meta"><p>Un sillage ambré intense, luxueux et ultra reconnaissable.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Bakara</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image tone-magik">
-              <img src="images/blue-magik.jpg" alt="Blue Magik">
-              <div class="label"><small>Inspiration Armaf</small><strong>Blue Magik</strong></div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="#bakara-page">Voir la fiche</a>
+              <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a>
             </div>
-            <div class="product-meta"><p>Fraîcheur bleue moderne, énergique et élégante sur la peau.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Blue Magik</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
@@ -829,16 +877,10 @@
               <div class="label"><small>Inspiration Mancera</small><strong>Coco Vanille</strong></div>
             </div>
             <div class="product-meta"><p>Une vanille crémeuse, solaire et addictive, très raffinée.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Coco Vanille</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image tone-creme">
-              <img src="images/creme-brulee.jpg" alt="Crème Brûlée">
-              <div class="label"><small>Inspiration Kalotinis</small><strong>Crème Brûlée</strong></div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="#coco-page">Voir la fiche</a>
+              <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a>
             </div>
-            <div class="product-meta"><p>Un gourmand premium au caramel chaud, riche et doux.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Crème Brûlée</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
@@ -847,16 +889,10 @@
               <div class="label"><small>Inspiration Xerjoff</small><strong>Erba Pura</strong></div>
             </div>
             <div class="product-meta"><p>Explosion fruitée lumineuse avec un vrai effet signature.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Erba Pura</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image tone-jadore">
-              <img src="images/jadore.jpg" alt="J'adore">
-              <div class="label"><small>Inspiration Dior</small><strong>J'adore</strong></div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="#erba-page">Voir la fiche</a>
+              <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a>
             </div>
-            <div class="product-meta"><p>Un floral chic et féminin avec une élégance immédiate.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander J'adore</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
@@ -865,43 +901,10 @@
               <div class="label"><small>Inspiration Tiziana Terenzi</small><strong>Kirké</strong></div>
             </div>
             <div class="product-meta"><p>Exotique, puissant et captivant, avec une vraie présence.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Kirké</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image tone-terre">
-              <img src="images/terre.jpg" alt="Terre">
-              <div class="label"><small>Inspiration Hermès</small><strong>Terre</strong></div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="#kirke-page">Voir la fiche</a>
+              <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a>
             </div>
-            <div class="product-meta"><p>Boisé-agrumé noble, masculin et très propre au quotidien.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Terre</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image tone-cachemire">
-              <img src="images/cachemire.jpg" alt="Cachemire">
-              <div class="label"><small>Inspiration Kashmir Musk</small><strong>Cachemire</strong></div>
-            </div>
-            <div class="product-meta"><p>Doux, propre et élégant, avec une ambiance musquée raffinée.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Cachemire</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image tone-bois">
-              <img src="images/bois.jpg" alt="Bois">
-              <div class="label"><small>Inspiration Bois d'Argent</small><strong>Bois</strong></div>
-            </div>
-            <div class="product-meta"><p>Boisé chic, profond et propre, avec une vraie allure premium.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Bois</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image tone-santal">
-              <img src="images/santal-paris.jpg" alt="Santal Paris">
-              <div class="label"><small>Inspiration Place de la Rêverie</small><strong>Santal Paris</strong></div>
-            </div>
-            <div class="product-meta"><p>Un santal élégant, velouté et raffiné avec une belle profondeur.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Santal Paris</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
           </article>
 
           <article class="product-card">
@@ -910,25 +913,176 @@
               <div class="label"><small>Inspiration Tom Ford</small><strong>Soleil Blanc</strong></div>
             </div>
             <div class="product-meta"><p>Un parfum solaire, chic et lumineux, très haut de gamme.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Soleil Blanc</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="#soleil-page">Voir la fiche</a>
+              <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a>
+            </div>
           </article>
 
           <article class="product-card">
-            <div class="product-image tone-mula">
-              <img src="images/mula.jpg" alt="Mula">
-              <div class="label"><small>Inspiration Byron</small><strong>Mula</strong></div>
+            <div class="product-image tone-terre">
+              <img src="images/terre.jpg" alt="Terre">
+              <div class="label"><small>Inspiration Hermès</small><strong>Terre</strong></div>
             </div>
-            <div class="product-meta"><p>Fruité, intense et séduisant, avec un sillage bien marqué.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Mula</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+            <div class="product-meta"><p>Boisé-agrumé noble, masculin et très propre au quotidien.</p><div class="product-price">20€</div></div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="#terre-page">Voir la fiche</a>
+              <a class="btn btn-outline" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="produits" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Pages produit</div>
+            <h2 class="section-title">Fiches dédiées</h2>
+          </div>
+          <p>
+            Chaque fiche produit a une grande image, une description plus poussée et un bouton commander direct.
+          </p>
+        </div>
+
+        <div class="product-pages-grid">
+          <article id="bakara-page" class="product-page-card">
+            <div class="product-page-visual tone-bakara">
+              <img src="images/bakara.jpg" alt="Bakara">
+            </div>
+            <div class="product-tag">Inspiration Baccarat Rouge 540</div>
+            <div class="product-page-title">
+              <h3>Bakara</h3>
+              <div class="product-price">20€</div>
+            </div>
+            <p class="product-page-desc">
+              Bakara est un parfum au caractère fort, immédiatement reconnaissable. Son aura ambrée et chaude donne une impression de luxe, de profondeur et de présence. C’est une senteur qui marque, idéale pour quelqu’un qui veut laisser un vrai souvenir.
+            </p>
+            <div class="product-notes">
+              <div class="note-box">Ambré</div>
+              <div class="note-box">Intense</div>
+              <div class="note-box">Signature</div>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Bakara</a>
+              <a class="btn btn-outline" href="#catalogue">Retour catalogue</a>
+            </div>
           </article>
 
-          <article class="product-card">
-            <div class="product-image tone-aisha">
-              <img src="images/aisha.jpg" alt="Aisha">
-              <div class="label"><small>Inspiration XXV Century</small><strong>Aisha</strong></div>
+          <article id="coco-page" class="product-page-card">
+            <div class="product-page-visual tone-coco">
+              <img src="images/coco-vanille.jpg" alt="Coco Vanille">
             </div>
-            <div class="product-meta"><p>Lumineux, fruité et élégant, avec une vraie présence féminine.</p><div class="product-price">20€</div></div>
-            <div class="product-actions"><a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Aisha</a><a class="btn btn-outline" href="tel:+33651963008">Appeler</a></div>
+            <div class="product-tag">Inspiration Mancera</div>
+            <div class="product-page-title">
+              <h3>Coco Vanille</h3>
+              <div class="product-price">20€</div>
+            </div>
+            <p class="product-page-desc">
+              Coco Vanille mélange douceur crémeuse et chaleur solaire. C’est une fragrance réconfortante, chic et très agréable à porter, avec une vraie sensation de peau chaude, propre et raffinée.
+            </p>
+            <div class="product-notes">
+              <div class="note-box">Vanille</div>
+              <div class="note-box">Solaire</div>
+              <div class="note-box">Doux</div>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Coco Vanille</a>
+              <a class="btn btn-outline" href="#catalogue">Retour catalogue</a>
+            </div>
+          </article>
+
+          <article id="erba-page" class="product-page-card">
+            <div class="product-page-visual tone-erba">
+              <img src="images/erba-pura.jpg" alt="Erba Pura">
+            </div>
+            <div class="product-tag">Inspiration Xerjoff</div>
+            <div class="product-page-title">
+              <h3>Erba Pura</h3>
+              <div class="product-price">20€</div>
+            </div>
+            <p class="product-page-desc">
+              Erba Pura apporte une explosion fruitée très lumineuse, avec un côté propre et moderne. Son rendu donne immédiatement une impression premium et dynamique, parfaite pour quelqu’un qui veut quelque chose de vif mais élégant.
+            </p>
+            <div class="product-notes">
+              <div class="note-box">Fruité</div>
+              <div class="note-box">Lumineux</div>
+              <div class="note-box">Moderne</div>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Erba Pura</a>
+              <a class="btn btn-outline" href="#catalogue">Retour catalogue</a>
+            </div>
+          </article>
+
+          <article id="kirke-page" class="product-page-card">
+            <div class="product-page-visual tone-kirke">
+              <img src="images/kirke.jpg" alt="Kirké">
+            </div>
+            <div class="product-tag">Inspiration Tiziana Terenzi</div>
+            <div class="product-page-title">
+              <h3>Kirké</h3>
+              <div class="product-price">20€</div>
+            </div>
+            <p class="product-page-desc">
+              Kirké a une personnalité forte, exotique et captivante. C’est un parfum qui attire l’attention avec son côté fruité et puissant, tout en gardant une vraie sophistication dans le sillage.
+            </p>
+            <div class="product-notes">
+              <div class="note-box">Exotique</div>
+              <div class="note-box">Puissant</div>
+              <div class="note-box">Captivant</div>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Kirké</a>
+              <a class="btn btn-outline" href="#catalogue">Retour catalogue</a>
+            </div>
+          </article>
+
+          <article id="soleil-page" class="product-page-card">
+            <div class="product-page-visual tone-soleil">
+              <img src="images/soleil-blanc.jpg" alt="Soleil Blanc">
+            </div>
+            <div class="product-tag">Inspiration Tom Ford</div>
+            <div class="product-page-title">
+              <h3>Soleil Blanc</h3>
+              <div class="product-price">20€</div>
+            </div>
+            <p class="product-page-desc">
+              Soleil Blanc évoque immédiatement une sensation de luxe solaire. C’est une fragrance lumineuse, chic, chaude et très raffinée, avec une ambiance vacances haut de gamme et élégance naturelle.
+            </p>
+            <div class="product-notes">
+              <div class="note-box">Solaire</div>
+              <div class="note-box">Chic</div>
+              <div class="note-box">Lumineux</div>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Soleil Blanc</a>
+              <a class="btn btn-outline" href="#catalogue">Retour catalogue</a>
+            </div>
+          </article>
+
+          <article id="terre-page" class="product-page-card">
+            <div class="product-page-visual tone-terre">
+              <img src="images/terre.jpg" alt="Terre">
+            </div>
+            <div class="product-tag">Inspiration Hermès</div>
+            <div class="product-page-title">
+              <h3>Terre</h3>
+              <div class="product-price">20€</div>
+            </div>
+            <p class="product-page-desc">
+              Terre est une fragrance propre, boisée et très maîtrisée. Son style mature et masculin en fait une excellente option pour quelqu’un qui veut une odeur nette, élégante et facile à porter.
+            </p>
+            <div class="product-notes">
+              <div class="note-box">Boisé</div>
+              <div class="note-box">Masculin</div>
+              <div class="note-box">Élégant</div>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Commander Terre</a>
+              <a class="btn btn-outline" href="#catalogue">Retour catalogue</a>
+            </div>
           </article>
         </div>
       </div>
@@ -942,27 +1096,26 @@
             <h2 class="section-title">Avis clients</h2>
           </div>
           <p>
-            Tu peux garder ces cartes pour l’instant, puis les remplacer plus tard
-            par de vrais retours clients.
+            Tu peux garder ces cartes pour l’instant, puis les remplacer plus tard par de vrais retours.
           </p>
         </div>
 
         <div class="review-grid">
           <div class="review-card">
             <div class="stars">★★★★★</div>
-            <p>Très bonne tenue et vrai effet premium. Les parfums sentent vraiment propre.</p>
+            <p>Très bonne tenue et un rendu vraiment propre. Le site donne une impression premium dès l’arrivée.</p>
             <strong>Client satisfait</strong>
           </div>
 
           <div class="review-card">
             <div class="stars">★★★★★</div>
-            <p>Le site est propre, les parfums sont bien mis en valeur et ça donne confiance.</p>
+            <p>Les fiches produit mettent mieux les parfums en valeur. Ça fait beaucoup plus sérieux.</p>
             <strong>Retour client</strong>
           </div>
 
           <div class="review-card">
             <div class="stars">★★★★★</div>
-            <p>Commande simple, réponse rapide et univers vraiment classe.</p>
+            <p>Commande simple, contact rapide et univers beaucoup plus classe qu’un site basique.</p>
             <strong>Expérience premium</strong>
           </div>
         </div>
@@ -975,7 +1128,7 @@
           <div class="section-kicker">Commande rapide</div>
           <h2 class="section-title">Choisis ton parfum et contacte A.M Signature.</h2>
           <p style="margin-top:16px;max-width:700px;color:rgba(219,201,177,.75);font-size:14px;line-height:1.9;">
-            Le client découvre le parfum, clique sur commander, puis te contacte directement via Snapchat ou téléphone.
+            Le client découvre le parfum, consulte sa fiche, puis te contacte directement via Snapchat ou téléphone.
           </p>
           <div class="hero-actions" style="margin-top:22px;">
             <a class="btn btn-gold" href="https://www.snapchat.com/add/a.msignature" target="_blank">Snap : a.msignature</a>
@@ -1015,6 +1168,7 @@
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#selection">Sélection</a></li>
           <li><a href="#catalogue">Catalogue</a></li>
+          <li><a href="#produits">Pages produit</a></li>
           <li><a href="#avis">Avis</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
